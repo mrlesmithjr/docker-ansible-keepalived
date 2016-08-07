@@ -20,6 +20,13 @@ sudo docker run -d -i --net=host --privileged=true \
 -e VIP_ADDRESS='192.168.202.102' -e VIP_INT='eth0' -e ROUTER_ID='50' \
 -e ROUTER_PRI='150' -e STATE='MASTER' docker-keepalived
 ```
+You can also define the environment variables in the `environment` folder for
+the container name you want to define. Ex.:
+`keepalived_1`
+```
+sudo docker run -d -i --net=host --privileged=true \
+--env-file ./environment/keepalived_1.env docker-keepalived
+```
 Or spin up container(s) using `docker-compose`:
 
 Make sure to define the proper variables within the `docker-compose.yml` file:
