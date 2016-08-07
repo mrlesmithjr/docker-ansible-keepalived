@@ -2,20 +2,6 @@
 - hosts: localhost
   become: true
   vars:
-    keepalived_router_info:
-    - name: vrrp_1
-#      check_script:
-#        - name: chk_haproxy
-#          script: 'killall -0 haproxy'
-#          interval: 2
-#          weight: 2
-      router_id: 50
-      router_pri_backup: 100
-      router_pri_master: 150
-      vip_int: 'eth0'
-      vip_addresses:
-        - 192.168.202.100
-        - 192.168.202.101
   roles:
   tasks:
     - name: Configuring KeepAliveD

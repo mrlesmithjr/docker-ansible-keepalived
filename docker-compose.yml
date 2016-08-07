@@ -1,10 +1,28 @@
 version: '2'
 services:
-  keepalived:
+  keepalived_1:
     tty: true
     build: ./
     image: docker-keepalived
     stdin_open: true
     network_mode: "host"
-    volumes:
-      - './.config:/etc/keepalived'
+    privileged: true
+    environment:
+      VIP_ADDRESS: '192.168.202.100'
+      VIP_INT: 'eth1'
+      ROUTER_ID: '50'
+      ROUTER_PRI: '150'
+      STATE: 'MASTER'
+  keepalived_2:
+    tty: true
+    image: docker-keepalived
+    stdin_open: true
+    network_mode: "host"
+    privileged: true
+    environment:
+      VIP_ADDRESS: '192.168.202.100'
+      VIP_INT: 'eth1'
+      ROUTER_ID: '50'
+      ROUTER_PRI: '100'
+      STATE: 'BACKUP'
+ 
