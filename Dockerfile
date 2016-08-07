@@ -31,9 +31,3 @@ COPY docker-entrypoint.sh /usr/local/bin/
 RUN ln -s usr/local/bin/docker-entrypoint.sh /entrypoint.sh
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 ENTRYPOINT ["docker-entrypoint.sh"]
-
-VOLUME /etc/keepalived
-
-# Container start-up
-#CMD ["/usr/bin/dumb-init", "keepalived"]
-#CMD [ "keepalived", "-f",  "/etc/keepalived/keepalived.conf" ]
