@@ -1,6 +1,6 @@
 Repository Information
 ======================
-Builds a [Docker] container running [KeepAliveD] ready for use.
+Builds a [Docker] image running [KeepAliveD] ready for use.
 Provisioning provided via [Ansible].
 
 Usage
