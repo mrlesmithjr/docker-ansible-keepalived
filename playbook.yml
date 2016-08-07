@@ -1,0 +1,26 @@
+---
+- hosts: localhost
+  become: true
+  vars:
+  roles:
+  tasks:
+    - name: Installing KeepAliveD
+      apt:
+        name: "keepalived"
+        state: "present"
+
+    - name: Configuring KeepAliveD To Start W/Out IP
+      sysctl:
+        name: "net.ipv4.ip_nonlocal_bind"
+        value: "1"
+        state: "present"
+        reload: yes
+
+    - name: Installing ca-certificates
+      apt:
+        name: "ca-certificates"
+        state: "latest"
+
+    - name: Installing dumb-init
+      apt:
+        deb: "https://github.com/Yelp/dumb-init/releases/download/v1.0.2/dumb-init_1.0.2_amd64.deb"

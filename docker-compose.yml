@@ -1,0 +1,10 @@
+version: '2'
+services:
+  keepalived:
+    tty: true
+    build: ./
+    image: docker-keepalived
+    stdin_open: true
+    network_mode: "host"
+    volumes:
+      - './.config:/etc/keepalived'
